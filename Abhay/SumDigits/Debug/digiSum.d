@@ -1,0 +1,1 @@
+digiSum.o: ../digiSum.cpp
