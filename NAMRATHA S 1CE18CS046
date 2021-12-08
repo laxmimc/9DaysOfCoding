@@ -1,0 +1,336 @@
+2. Find the sum of digits of a number using recursion.
+#include <iostream>
+using namespace std;
+int sumOfDigits(int n)
+{
+        if(n==0)
+        {
+              return 0;
+        }
+        else
+        {
+              return (n%10) + sumOfDigits(n/10);
+        }
+}
+int main()
+{
+        int num;
+        cout<<"\nENTER NUMBER: ";
+        cin>>num;
+        cout<<"\nSUM OF DIGITS: "<<sumOfDigits(num);
+        return 0;
+}
+
+
+3. Find the sum of squares of first N odd natural numbers.
+
+#include <iostream>
+using namespace std;
+int squareSum(int n)
+{
+    int sum = 0;
+    for (int i = 1; i <=  n; i++)
+        sum =sum+ (2*i - 1) * (2*i - 1);
+    return sum;
+}
+int main()
+{
+    int n;
+    cout<<"enter the number";
+    cin>>n;
+    cout << "the sum of square of odd numbers is "<<squareSum(n);
+    return 0;
+}
+
+4. Write a program to display a solid and hollow rectangle.
+	***** *****
+	***** *   *
+	***** *****
+  /*
+ * prog4.cpp
+ *
+ *  Created on: 06-Dec-2021
+ *      Author: Namratha
+ */
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void print_hollow_rectangle(int n, int m)
+{
+    int i, j;
+
+    for (i = 1; i <= n; i++)
+    {
+        for (j = 1; j <= m; j++)
+        {
+            if (i == 1 || i == n ||
+                j == 1 || j == m)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout<<endl;
+    }
+}
+void print_solid_rectangle(int n, int m)
+{
+    int i, j;
+    for (i=1; i<=n; i++)
+    {
+        for (j=1; j<=m; j++)
+            cout << "*";
+        cout << "\n";
+    }
+}
+int main()
+{
+    int rows = 3, columns = 5;
+    print_solid_rectangle(rows,columns);
+    cout<<"\n\n";
+    print_hollow_rectangle(rows, columns);
+    return 0;
+}
+
+  
+5. Write a program to REVERSE the number?
+/*
+ * prog5.cpp
+ *
+ *  Created on: 06-Dec-2021
+ *      Author: Namratha
+ */
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,rev = 0, rem;
+    cout << "Enter an integer=";
+    cin >> n;
+    while(n!= 0)
+    {
+        rem = n%10;
+        rev = rev*10 + rem;
+        n /= 10;
+    }
+    cout << "Reversed Number=" << rev;
+    return 0;
+}
+
+
+6. Write a program to convert BINARY to DECIMAL?
+
+/*
+ * prog6.cpp
+ *
+ *  Created on: 06-Dec-2021
+ *      Author: Namratha
+ */
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int convert(int,int);
+int main()
+{
+ int n,a;
+  cout << "Enter the number of digit in binary number: ";
+  cin >> a;
+  cout << "Enter a binary number: ";
+  cin >> n;
+  cout << n << " in binary = " << convert(n,a) << " in decimal";
+  return 0;
+}
+int convert(int n,int a)
+{
+  int dec = 0, rem,i;
+for(i=0;i<=a;++i)
+{
+    rem = n % 10;
+    n=n/10;
+    dec=dec+rem * pow(2, i);
+  }
+  return dec;
+}
+
+8. Write a program to display number of LOWERCASE, UPPERCASE, SPECIAL SYMBOLS, SPACES and DIGITS in a STRING?
+
+/*
+ * prog8.cpp
+ *
+ *  Created on: 06-Dec-2021
+ *      Author: Namratha
+ */
+
+#include<iostream>
+using namespace std;
+void count(string str)
+{
+    int upper = 0, lower = 0, digit = 0, special = 0,space = 0,m ;
+    m= str.length();
+    for (int i=0; i<m;i++)
+    {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            upper++;
+        else if (str[i] >= 'a' && str[i] <= 'z')
+            lower++;
+        else if (str[i]>= '0' && str[i]<= '9')
+            digit++;
+        else if (str[i]== '\t' || str[i]== ' ' )
+            space++;
+        else
+            special++;
+    }
+    cout << "Upper case letters: " << upper << endl;
+    cout << "Lower case letters : " << lower << endl;
+    cout << "Number : " << digit << endl;
+    cout << "space : " << space << endl;
+    cout << "Special characters : " << special << endl;
+}
+int main()
+{
+    string str;
+    cout<<"enter the string= ";
+    cin>>str;
+    count(str);
+    return 0;
+}
+
+10. Write a program to insert an element into existing array in a specified position?
+/*
+ * prog10.cpp
+ *
+ *  Created on: 08-Dec-2021
+ *      Author: Namratha
+ */
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+   int a[100], pos, i, n, value;
+   cout<<"Enter number of elements in array\n"<<endl;
+   cin>>n;
+   cout<<"Enter elements\n"<<endl;
+   for (i = 0; i < n; i++)
+   {
+   cin>>a[i];
+    }
+   cout<<"Enter the location where you wish to insert an element\n"<<endl;
+   cin>>pos;
+   cout<<"Enter the value to insert\n"<<endl;
+   cin>>value;
+   for (i = n - 1; i >= pos - 1; i--)
+   {
+  a[i+1] = a[i];
+    }
+	a[pos-1] = value;
+    cout<<"Resultant array is\n"<<endl;
+   for (i = 0; i <= n; i++)
+   {
+      cout<<a[i];
+      cout<<"\n";
+         }
+   return 0;
+}
+
+
+11. Write a program to search an element in the existing array?
+
+/*
+ * prog11.cpp
+ *
+ *  Created on: 08-Dec-2021
+ *      Author: Namratha
+ */
+#include <iostream>
+using namespace std;
+
+int main(){
+    int a[100], n, i, num;
+    cout << "Enter Number of Elements in Array\n";
+    cin >> n;
+    cout << "Enter elements of the array  \n";
+    for(i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    cout<< "Enter a number to search in Array\n";
+    cin >> num;
+    for(i = 0; i < n; i++){
+        if(a[i] == num){
+            cout << "Element found at position " << i;
+            break;
+        }
+    }
+    if(i == n){
+        cout  << "Element Not Present in Array\n";
+    }
+    return 0;
+}
+
+
+13. Write a program to remove vowels from string.
+/*
+ * prog13.cpp
+ *
+ *  Created on: 08-Dec-2021
+ *      Author: Namratha
+ */
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+	char str[100];
+	int i,j,len=0;
+	cout<<"Enter a string : ";
+	cin>>str;
+	len=strlen(str);
+	for(i=0; i<len; i++)
+	{
+		if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+		{
+			for(j=i; j<len; j++)
+			{
+				str[j]=str[j+1];
+			}
+		i--;
+		len--;
+		}
+	}
+	cout<<"After deleting the vowels, the string will be : "<<str;
+    return 0;
+}
+
+
+15. Write a program for ZIP, ZAP and ZOOM game:
+	1. If the number is multiple of 3 to display “ZIP”
+	2. If the number is multiple of 5 to display “ZAP”
+	3. If the number is multiple of 3 and 5 to display “ZOOM”
+	4. If it does not satisfy any of the above conditions, display “INVALID”
+  /*
+ * prog15.cpp
+ *
+ *  Created on: 08-Dec-2021
+ *      Author: Namratha
+ */
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter the number ";
+    cin >> n;
+    if(n%3==0 && n%5==0)
+    	cout<<"ZOOM";
+    else if(n%5==0)
+    	cout<<"ZAP";
+    else if(n%3==0)
+    	cout<<"ZIP";
+    else
+    	cout<<"INVALID";
+}
